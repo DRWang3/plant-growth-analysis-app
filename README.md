@@ -1,2 +1,0 @@
-# plant-growth-analysis-app
- 
