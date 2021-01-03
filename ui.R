@@ -15,15 +15,18 @@ fluidPage(
 
                             mainPanel(
 
-                              p("Characterizing growth over time is an important component of plant ecophysiology. It requires collecting information over time on size, form, number, and/or mass, depending on the specific questions to address. Of important plant growth parameters, ",
-                              strong("relative growth rate "), ") is amongst the most informative and can be computed using interval, integral and functional approaches. This learning module will walk through each of these approaches using data collected from ", 
-                              "the ", tags$a(href="https://ag.purdue.edu/cepf/", "Purdue University Controlled Environment Phenotyping Facility (CEPF).") , " The CEPF is a plant growth facility that employs an automated system for irrigation, fertigation, and imaging. There are three camera systems at the facility: red-green-blue (RGB), hyperspectral, and computed tomography root scanner."),
-                              br(), 
-                              
+                              p("Characterizing growth and development is an important component of plant ecophysiology. It requires collecting information over time on size, form, number, and/or mass, depending on the specific questions addressed. Of important plant growth parameters, ",
+                              strong("relative growth rate "), "is among the most informative and can be computed using interval, integral and functional approaches. This learning module will walk through each of these approaches and is geared towards undergraduate students of plant physiology as a supplement to their foundational coursework."),
+                              br(),
+                        
                               h4("The Data"),
-                              "The data used in this module come from CEPF's RGB imaging system. Plant images of three papaya",
+                               
+                              "The data used in this module come from the ", tags$a(href="https://ag.purdue.edu/cepf/", "Purdue University Controlled Environment Phenotyping Facility (CEPF).") , " The CEPF is a plant growth facility that employs an automated system for irrigation, fertigation, and imaging.",
+                              "There are three camera systems at the facility: red-green-blue (RGB), hyperspectral, and computed tomography root scanner.",
+                              
+                              "We will be examining data from the RGB imaging system. Plant images of three papaya",
                               em("(Carica papaya,"), "cv. Sunrise) and 31 rice ", em("(Oryza sativa,"), "16 diverse cultivars) were taken at 12 angles several times per week. These images were processed through an analytical pipeline, and two of the resulting computed metrics will be used in this lesson: SideAverageHeight (Figure 1) and TopPlantSurface (Figure 2). SideAverageHeight is the computed distance from the bottom of the green box to the top of the green box in Figure 1. TopPlantSurface is the computed area in ",
-                              HTML(paste0("mm",tags$sup("2"))), "occupied by grey pixels bounded by the red outline in Figure 2. The full dataset can also be downloaded for other analyses.",
+                              HTML(paste0("mm",tags$sup("2"))), "occupied by grey pixels bounded by the red outline in Figure 2. The full dataset can also be downloaded here for educators or researchers to re-purpose for other analyses.",
                               br(),
                               br(),
                               
@@ -102,7 +105,7 @@ fluidPage(
                                                   "TopAverageValue", "TopCenterOfMassDistance", "TopCenterOfMassX","TopCenterOfMassY",
                                                   "TopConvexHull","TopHeight","TopPlantSurface", "TopRoundness", "TopSurface", "TopWidth")),
                           
-                          span(textOutput("tab2_text"), style="color:blue"),
+                          textOutput("tab2_text"),
                           plotOutput("tab2_plot")
                         )
                         )
@@ -183,8 +186,7 @@ fluidPage(
                           p("$$D=\\int_{t_1}^{t_2} W \\,dt $$"),
                           br(),
                           
-                          p("Again using the papaya dataset, we will now use the trapezoid rule at two timepoints to approximate leaf area duration. Select pairs of timepoints to approximate D and RGR. Do this for at least three timepoint pairs."),
-                          br(),
+                          p("Again using the papaya dataset, we will now use the trapezoidal rule at two timepoints to approximate D (shaded in purple). Select pairs of timepoints to approximate D and the resulting RGR. Do this for at least three timepoint pairs."),
                           
                           p("What are the units of D for each trait? How do the results of this approach compare with the interval approach to computing RGR?"),
                           br(),
@@ -230,6 +232,7 @@ fluidPage(
                           
                           "Sigmoidal growth patterns are ubiquitous in biology, and we see that our CEPF data follow suit. In this exercise, you will fit the three-parameter logistic function (with parameters K, N and r) on diverse rice genotypes. There are 16 different genotypes in this evaluation with all but one genotype having two replicates.",
                           br(),
+                          br(), 
                           br(),
                           
                           p("The logistic growth curve is"),

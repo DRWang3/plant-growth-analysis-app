@@ -1,3 +1,10 @@
+
+## definitions for growth traits
+
+
+
+
+
 ## functions
 
 RGR_interval = function(w1, w2, t1, t2){
@@ -35,9 +42,9 @@ RGR_integral = function(w1, w2, d){
   return(res)
 }
 
-plot.fitted.log = function(K, N0, r, t, color){
+plot.fitted.log = function(K, N0, r, t, color, line.width){
   A = K/(1+(((K - N0)/N0) * exp(-r*(t))))
-  points(t, A, col = color, type="l", lwd = 2)
+  points(t, A, col = color, type="l", lwd = line.width)
 }
 
 RGR_functional = function(K, N0, r, t){

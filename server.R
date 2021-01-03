@@ -42,27 +42,48 @@ function(input, output){
     which(names(df.tab3)== input$tab3_variable)
   })
   
+  tab3_data = reactive({
+    t1 = input$tab3_TP1
+    t2 = input$tab3_TP2
+    
+    w1 = mean(df.tab3[which(df.tab3$PlantAge == t1), tab3_idx()], na.rm=T)
+    w2 = mean(df.tab3[which(df.tab3$PlantAge == t2), tab3_idx()], na.rm=T)
+    
+    c(t1, t2, w1, w2)
+  })
+  
   output$tab3_plot = renderPlot({
+    w1 = tab3_data()[3]
+    w2 = tab3_data()[4]
+    
     plot(df.tab3$PlantAge, df.tab3[,tab3_idx()], main = paste("Papaya", input$tab3_variable, sep = " "), cex =2,
          ylab = input$tab3_variable, xlab = "PlantAge (days)", pch = 16, col=rgb(red=1, green=0.6, blue=0.2, alpha=0.6))
     abline(v= c(input$tab3_TP1, input$tab3_TP2 ), lty = 3, lwd = 2, col=rgb(red=0, green=0.4, blue=0.8, alpha=0.8))
+    
+    tab3_expression = bquote(paste('W'[1]*' = ', .(w1), '; W'[2]*' = ', .(w2) ) )
+      
+    if(input$tab3_variable == "TopPlantSurface"){
+      text(28, 300000, tab3_expression, pos = 4, col = "blue", cex = 1.25)
+    } else {
+      text(28, 1100, tab3_expression, pos = 4, col = "blue", cex = 1.25 )
+    }
   })
   
   output$tab3_RGR = renderText({
-    t1 = input$tab3_TP1
-    t2 = input$tab3_TP2
+    t1 = tab3_data()[1]
+    t2 = tab3_data()[2]
     
     ## check if the timepoints selected are within the dataset
     if(length(which(df.tab3$PlantAge == input$tab3_TP1)) != 0 ){
       if(length(which(df.tab3$PlantAge == input$tab3_TP2)) != 0 ){
         ## if timepoints selected are OK, then compute RGR
         
-        w1 = mean(df.tab3[which(df.tab3$PlantAge == t1), tab3_idx()], na.rm=T)
-        w2 = mean(df.tab3[which(df.tab3$PlantAge == t2), tab3_idx()], na.rm=T)
+        w1 = tab3_data()[3]
+        w2 = tab3_data()[4]
         
         rgr = round( RGR_interval(w1, w2, t1, t2), digits = 4)
         
-        res.tab3 = paste("Average RGR across these timepoints is ", rgr, "days^-1")
+        res.tab3 = paste("RGR = ", rgr, "days^-1")
         
         
       } else {
@@ -77,20 +98,56 @@ function(input, output){
   
   ##### tab 4 (Integral approach) ######
   df.tab4 = df[which(df$Species == "Papaya"),]
+  
   tab4_idx = reactive({
     which(names(df.tab4)== input$tab4_variable)
   })
   
+  tab4_data = reactive({
+    t1 = input$tab4_TP1
+    t2 = input$tab4_TP2
+    
+    w1 = mean(df.tab4[which(df.tab4$PlantAge == t1), tab4_idx()], na.rm=T)
+    w2 = mean(df.tab4[which(df.tab4$PlantAge == t2), tab4_idx()], na.rm=T)
+    
+    c(t1, t2, w1, w2)
+  })
+  
   output$tab4_plot = renderPlot({
+    t1 = tab4_data()[1]
+    t2 = tab4_data()[2]
+    w1 = tab4_data()[3]
+    w2 = tab4_data()[4]
+    
     plot(df.tab4$PlantAge, df.tab4[,tab4_idx()], main = "Papaya TopPlantSurface",
          ylab = "Papaya TopPlantSurface", xlab = "PlantAge (days)", cex = 2,
          pch = 16, col=rgb(red=1, green=0.6, blue=0.2, alpha=0.6))
         abline(v= c(input$tab4_TP1, input$tab4_TP2 ), lty = 3, lwd = 2, col=rgb(red=0, green=0.4, blue=0.8, alpha=0.8) )
+        
+        ## check if the timepoints selected are within the dataset, add polygon if OK
+        if(length(which(df.tab4$PlantAge == tab4_data()[1])) != 0 ){
+          if(length(which(df.tab4$PlantAge == tab4_data()[2])) != 0 ){
+            
+            x = c(input$tab4_TP1, input$tab4_TP2 , input$tab4_TP2 , input$tab4_TP1)
+            y = c(w1, w2, 0 , 0)
+            polygon(x, y, col=rgb(red=0.2, green=0.2, blue=1.0, alpha=0.2), border = NA)
+            
+          }
+        }
+        
+        tab4_expression = bquote(paste('W'[1]*' = ', .(w1), '; W'[2]*' = ', .(w2) ) )
+        
+        if(input$tab4_variable == "TopPlantSurface"){
+          text(28, 300000, tab4_expression, pos = 4, col = "blue", cex = 1.25)
+        } else {
+          text(28, 1100, tab4_expression, pos = 4, col = "blue", cex = 1.25 )
+        }
+        
   })
   
   output$tab4_D = renderText({
-    t1 = input$tab4_TP1
-    t2 = input$tab4_TP2
+    t1 = tab4_data()[1]
+    t2 = tab4_data()[2]
     
     ## check if the timepoints selected are within the dataset
     if(length(which(df.tab4$PlantAge == input$tab4_TP1)) != 0 ){
@@ -103,7 +160,7 @@ function(input, output){
         d = D_integral(w1, w2, t1, t2)
         rgr = round(RGR_integral(w1, w2, d), digits = 4)
         
-        res.tab4 = paste("Average RGR across these timepoints is ", rgr, " days^-1 ", sep ="")
+        res.tab4 = paste("RGR = ", rgr, " days^-1", sep ="")
         
       } else {
         res.tab4 = "Please select timepoints that have data"
@@ -152,7 +209,7 @@ function(input, output){
   
   output$tab5_text = renderText({
     rgr = round(RGR_functional(data()$params[1], data()$params[3] , data()$params[2], input$tab5_TP), digits = 4)
-    paste("RGR at this timepoint is ", rgr, " days^-1", sep="")
+    paste("RGR = ", rgr, " days^-1", sep="")
   })
   
   output$tab5_plot = renderPlot({
@@ -160,7 +217,8 @@ function(input, output){
     plot(data()$t, data()$A, main = "Rice SideAverageHeight {to replace with TopSurfaceArea!!!}", cex = 2, 
          ylab = "Rice SideAverageHeight", xlab = "PlantAge (days)", ylim = c(0, 1100), xlim= c(0, 65), 
          pch = 16,  col=rgb(red=1, green=0.6, blue=0.2, alpha=0.6) )
-    plot.fitted.log(data()$params[1], data()$params[3] , data()$params[2] , 1:65, color =rgb(red=0, green=0.4, blue=0.8, alpha=0.8))
+    plot.fitted.log(data()$params[1], data()$params[3] , data()$params[2] , 1:65, color = rgb(red=0.2, green=0.2, blue=1.0, alpha=0.2),
+                    line.width = 8)
     abline(v= c(input$tab5_TP ), lty = 3, lwd = 2, col=rgb(red=0, green=0.4, blue=0.8, alpha=0.8) )
   
     expression = paste("K = ", round(data()$params[1], digits=2), "; N = ", round(data()$params[3], digits=2), 
