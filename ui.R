@@ -280,16 +280,22 @@ fluidPage(
                       
                         mainPanel(
                           
-                          p("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit egestas dui id ornare arcu odio ut. Ornare massa eget egestas purus. Massa id neque aliquam vestibulum morbi. Est placerat in egestas erat imperdiet sed euismod nisi. Viverra maecenas accumsan lacus vel facilisis. Semper feugiat nibh sed pulvinar proin. Elementum curabitur vitae nunc sed velit dignissim sodales ut. Fames ac turpis egestas integer eget aliquet nibh. Vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet. Velit euismod in pellentesque massa placerat duis ultricies. Malesuada nunc vel risus commodo. Sed elementum tempus egestas sed sed risus. Ac turpis egestas sed tempus. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt."),
+                          p("In this lesson, we discussed interval, integral and functional approaches to analyzing relative growth rate:"),
                           br(),
                           
-                          ## placeholder for summary table, inputted as an image for ease
-                          ## img(src='rice_CEPF2.JPG', align = "center", height = "100%", width = "100%"),
-                          br(), 
+                          tags$li(strong("Interval:"), " Computes an average relative growth rate across two timepoints."),
+                          tags$li(strong("Integral:"), " Computes relative growth rate using an additional duration parameter."),
+                          tags$li(strong("Functional:"), " Computes instantaneous RGR using the logarithmic derivative of a fitted function of growth over time."),
+                          br(),
+                          
+                          h4("Citation"),
+                          "Wang, DR; Kantar, MK; Paull RE. An online learning module for plant growth analysis using high-throughput phenotyping data.",
+                          "In prep. ", em("Natural Sciences Education"),
+                          br(), br(),
                           
                           h4("Other Resources"),
                           
-                          p("Much of the content for this learning module is developed from the following resource. Students are encouraged to consult this textbook for more detailed discussions on plant growth analysis and other ecophysiological methods."),
+                          p("Much of the content for this learning module is developed from the following textbook. Students are encouraged to consult this resource for more details on plant growth analysis and other ecophysiological methods."),
                           br(),
                           p(em("Chiariello, Nona R.; Mooney, Harold A; Williams, Kimberlyn. Growth, carbon allocation and cost of plant tissues. Plant Physiological Ecology: Field methods and instrumentation, Eds: Pearcy, RW; Ehleringer, J; Mooney, HA; Rundel, PW, Volume 1, Chapman and Hall Ltd, 1989, New York, NY (pgs 327-365).")),
                           br(),
