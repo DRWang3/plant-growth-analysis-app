@@ -32,7 +32,7 @@ function(input, output){
   })
   
   output$tab2_text = renderText({
-    "PLACEHOLDER TO DESCRIBE THE SELECTED VARIABLE"
+    paste("Definition:", defDict$description[which(defDict$var.name == input$tab2_variable)], sep=" ")
   })
   
   ##### tab 3 (Interval approach) ######
@@ -174,7 +174,7 @@ function(input, output){
   ##### tab 5 (Functional approach) ######
   
   df.tab5 = df[which(df$Species == "Rice"),]
-  idx = which(names(df) == "SideAverageHeight")
+  idx = which(names(df) == "TopPlantSurface")
   
   # call data() to access in Outputs below, e.g. outputPlot
   data = reactive({  
@@ -214,8 +214,8 @@ function(input, output){
   
   output$tab5_plot = renderPlot({
     
-    plot(data()$t, data()$A, main = "Rice SideAverageHeight {to replace with TopSurfaceArea!!!}", cex = 2, 
-         ylab = "Rice SideAverageHeight", xlab = "PlantAge (days)", ylim = c(0, 1100), xlim= c(0, 65), 
+    plot(data()$t, data()$A, main = "Rice TopPlantSurface", cex = 2, 
+         ylab = "Rice TopPlantSurface", xlab = "PlantAge (days)", ylim = c(0, 180000), xlim= c(0, 65), 
          pch = 16,  col=rgb(red=1, green=0.6, blue=0.2, alpha=0.6) )
     plot.fitted.log(data()$params[1], data()$params[3] , data()$params[2] , 1:65, color = rgb(red=0.2, green=0.2, blue=1.0, alpha=0.2),
                     line.width = 8)
@@ -223,8 +223,8 @@ function(input, output){
   
     expression = paste("K = ", round(data()$params[1], digits=2), "; N = ", round(data()$params[3], digits=2), 
                        "; r = ", round(data()$params[2], digits=2), sep="")
-    text(0, 1050, "Parameter estimates:", pos = 4, col = "blue", cex = 1.25)
-    text(0, 950, expression, pos = 4, col = "blue", cex = 1.25)
+    text(0, 160000, "Parameter estimates:", pos = 4, col = "blue", cex = 1.25)
+    text(0, 140000, expression, pos = 4, col = "blue", cex = 1.25)
   
   })
   

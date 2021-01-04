@@ -101,10 +101,10 @@ fluidPage(
                                       choices = c("PlantAge","SideAverageCenterOfMassDistance", "SideAverageCenterOfMassX",
                                                   "SideAverageCenterOfMassY" ,"SideAverageConvexHull", "SideAverageHeight", 
                                                   "SideAverageHue","SideAverageRoundness","SideAverageSaturation","SideAverageSurface",
-                                                  "SideAverageValue", "SideMaxWidth", "TopAverageHue","TopAverageSaturation", 
+                                                  "SideAverageValue", "TopAverageHue","TopAverageSaturation", 
                                                   "TopAverageValue", "TopCenterOfMassDistance", "TopCenterOfMassX","TopCenterOfMassY",
-                                                  "TopConvexHull","TopHeight","TopPlantSurface", "TopRoundness", "TopSurface", "TopWidth")),
-                          
+                                                  "TopConvexHull","TopPlantSurface", "TopRoundness", "TopSurface")),
+                       
                           textOutput("tab2_text"),
                           plotOutput("tab2_plot")
                         )
@@ -230,7 +230,7 @@ fluidPage(
                           p("The functional approach to plant growth analysis involves fitting a curve to a time-series of observations and estimating the parameters of the curve."),
                           br(),
                           
-                          "Sigmoidal growth patterns are ubiquitous in biology, and we see that our CEPF data follow suit. In this exercise, you will fit the three-parameter logistic function (with parameters K, N and r) on diverse rice genotypes. There are 16 different genotypes in this evaluation with all but one genotype having two replicates.",
+                          "Sigmoidal and exponential growth patterns are commonly found in biology. In this exercise, you will fit the three-parameter logistic function (with parameters K, N and r) on diverse rice genotypes for TopPlantSurface. There are 16 different genotypes in this evaluation with all but one genotype having two replicates.",
                           br(),
                           br(), 
                           br(),
