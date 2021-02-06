@@ -291,7 +291,7 @@ fluidPage(
                           tags$li(strong("Functional:"), " Computes instantaneous RGR using the logarithmic derivative of a fitted function of growth over time."),
                           br(),
                           
-                          p("The questions asked in this learning module were meant to generate discussion. Below are only some possible responses."),
+                          p("The questions presented in this learning module were meant to generate discussion, and below are some possible responses."),
                           br(),
                           
                           p(strong("RGR tab: Do you notice common shapes to growth trajectories across
