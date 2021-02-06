@@ -42,7 +42,7 @@ fluidPage(
                               
                               p("After completing this module, you should be able to:"),
                               
-                              tags$li("  Understand the differences between interval, integral and functional approaches"),
+                              tags$li("  Compare and contrast the differences between interval, integral and functional approaches"),
                               tags$li("  Discuss the benefits and trade-offs of high-throughput phenotyping data"),
                               br(),
                               
@@ -291,10 +291,8 @@ fluidPage(
                           tags$li(strong("Functional:"), " Computes instantaneous RGR using the logarithmic derivative of a fitted function of growth over time."),
                           br(),
                           
-                          h4("Citation"),
-                          "Wang, DR; Imel RK; Paull RE; Kantar, MK. An online learning module for plant growth analysis using high-throughput phenotyping data.",
-                          "In prep. ", em("Natural Sciences Education"),
-                          br(), br(),
+                          p("We saw how the interval and integral approaches can be used to estimate RGR with as little as two timepoints of data. The functional approach, on the other hand, requires sampling across the entirety of a growth trajectory. With the advancement of HTP, the functional approach can be more easily applied across many genotypes with relatively little effort. However, as HTP technologies are based on indirect means of measurement, it is also important to collect ‘ground-truth’ datasets to check that there is high correlation of HTP variables with target traits. This is especially important when applying such approaches to untested systems (new species, new treatments, new environments etc)."),
+                          br(),
                           
                           h4("Other Resources"),
                           
@@ -309,7 +307,11 @@ fluidPage(
                           
                           p(em("Baker RL, Leong WF, Welch S, Weinig C. Mapping and predicting non-linear Brassica rapa growth phenotypes based on bayesian and frequentist complex trait estimation. G3: Genes, Genomes, Genetics. 2018 Apr 1;8(4):1247-58.")),
                           br(),
-                          br()
+                          
+                          h4("Citation"),
+                          "Wang, DR; Imel RK; Paull RE; Kantar, MK. An online learning module for plant growth analysis using high-throughput phenotyping data.",
+                          "In prep. ", em("Natural Sciences Education"),
+                          br(), br()
                           
                           
                         )
