@@ -292,7 +292,7 @@ fluidPage(
                           br(),
                           
                           h4("Citation"),
-                          "Wang, DR; Kantar, MK; Paull RE. An online learning module for plant growth analysis using high-throughput phenotyping data.",
+                          "Wang, DR; Imel RK; Paull RE; Kantar, MK. An online learning module for plant growth analysis using high-throughput phenotyping data.",
                           "In prep. ", em("Natural Sciences Education"),
                           br(), br(),
                           
