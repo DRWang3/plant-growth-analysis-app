@@ -291,7 +291,45 @@ fluidPage(
                           tags$li(strong("Functional:"), " Computes instantaneous RGR using the logarithmic derivative of a fitted function of growth over time."),
                           br(),
                           
-                          p("We saw how the interval and integral approaches can be used to estimate RGR with as little as two timepoints of data. The functional approach, on the other hand, requires sampling across the entirety of a growth trajectory. With the advancement of HTP, the functional approach can be more easily applied across many genotypes with relatively little effort. However, as HTP technologies are based on indirect means of measurement, it is also important to collect ‘ground-truth’ datasets to check that there is high correlation of HTP variables with target traits. This is especially important when applying such approaches to untested systems (new species, new treatments, new environments etc)."),
+                          p("The questions asked in this learning module were meant to generate discussion. Below are only some possible responses."),
+                          br(),
+                          
+                          p(strong("RGR tab: Do you notice common shapes to growth trajectories across
+                            various traits?")),
+                            
+                          p("Some look exponential (e.g., Papaya TopPlantSurface and Papaya TopConvexHull), while others look logistic (e.g., Rice TopPlantSurface).
+                            Other variables have no well-defined shape at all or have extreme
+                            outliers that make it difficult to define (e.g. Papaya TopCenterOfMassDistance)."),
+                          br(),
+                          
+                          p(strong("Interval tab: How does RGR change throughout the experiment?
+                            RGR decreases throughout the experiment.")),
+                          
+                          p("RGR decreases throughout the experiment."),
+                          br(),
+                          
+                          p(strong("Integral tab: What are the units of D for each trait? How do the results of
+                            this approach compare with the interval approach to computing RGR?")),
+                          
+                          p("The units of D for TopPlantSurface is mm^2 days and for SideAverageHeight is mm days.
+                            The response to the second question depends on the specific timepoints selected.
+                            For some timepoint pairs, the interval approach gives a greater RGR value, whereas for others,
+                            the integral approach gives a greater value."),
+                          br(),
+                          
+                          p(strong("Functional What can you tell about the minimum data requirement of the functional approach versus the former two? What are a few possible
+                            advantages that HTP phenotyping provides in this context?")),
+                          
+                          p("We saw how the interval and integral approaches can be used to estimate
+                            RGR with as little as two timepoints of data. The functional approach,
+                            on the other hand, requires sampling across the entirety of a growth
+                            trajectory. With the advancement of HTP, the functional approach can be
+                            more easily applied across many genotypes with relatively little effort.
+                            However, as HTP technologies are based on indirect means of measurement,
+                            it is also important to collect ‘ground-truth’ datasets to check that
+                            there is high correlation of HTP variables with target traits. This is
+                            especially important when applying such approaches to untested systems
+                            (new species, new treatments, new environments etc)."),
                           br(),
                           
                           h4("Other Resources"),
