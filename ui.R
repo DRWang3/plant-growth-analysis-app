@@ -317,7 +317,7 @@ fluidPage(
                             the integral approach gives a greater value."),
                           br(),
                           
-                          p(strong("Functional What can you tell about the minimum data requirement of the functional approach versus the former two? What are a few possible
+                          p(strong("Functional tab: What can you tell about the minimum data requirement of the functional approach versus the former two? What are a few possible
                             advantages that HTP phenotyping provides in this context?")),
                           
                           p("We saw how the interval and integral approaches can be used to estimate
