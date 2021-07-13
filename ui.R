@@ -45,7 +45,7 @@ fluidPage(
                               tags$li("  Compare and contrast the differences between interval, integral and functional approaches"),
                               tags$li("  Discuss the benefits and trade-offs of high-throughput phenotyping data"),
                               br(),
-                              
+                            
                               h3("Click on the Relative Growth Rate tab to begin"),
                               
                               br(),
@@ -346,9 +346,13 @@ fluidPage(
                           p(em("Baker RL, Leong WF, Welch S, Weinig C. Mapping and predicting non-linear Brassica rapa growth phenotypes based on bayesian and frequentist complex trait estimation. G3: Genes, Genomes, Genetics. 2018 Apr 1;8(4):1247-58.")),
                           br(),
                           
+                          
+                          img(src='NSE-approved.jpg', align = "center", height = "25%", width = "25%"),
+                          br(),
+                          
                           h4("Citation"),
                           "Wang, DR; Imel RK; Paull RE; Kantar, MK. An online learning module for plant growth analysis using high-throughput phenotyping data.",
-                          "In prep. ", em("Natural Sciences Education"),
+                          em("Natural Sciences Education."), "http://doi.org/10.1002/nse2.20056",
                           br(), br()
                           
                           
